@@ -1,0 +1,12 @@
+11
+6 this is the test sentence sentence
+5 sentence sentence stence test a
+3 apple is apple
+5 sentence is a apple pie
+2 apple test
+7 apple is a test a the the
+9 a b c d e f a a a
+10 a a a a a a a a a a
+8 test test test test apple a a a
+1 a
+2 the a
