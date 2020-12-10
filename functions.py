@@ -1,3 +1,16 @@
+import os.path
+import csv
+def load_csv(path,file_name):
+    documents_list = []
+    with open(os.path.join(path, file_name), newline='',encoding="utf8") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            documents_list.append(row['content'])
+    print("Total Number of Documents:",len(documents_list))
+    return documents_list
+
+
+
 def loadTwee(twis):
     data = dict()
     for i in range(0,len(twis)):
@@ -53,10 +66,15 @@ if __name__=="__main__":
     "apple is good sentence is a good thing",
     "nothing is a good apple",
     "good sentence apple"]
-    keys = ["apple"]
+    keys = ["apple","pie","sweet","trump","2020"]
+    raw = load_csv("","IRAhandle_tweets_1.csv")
+
     twi = list()
     for sent in raw:
         twi.append(sent.split())
+
     data = loadTwee(twi)
     rtn = findKey(data,keys)
     print(rtn)
+    for i in rtn:
+        print(raw[i])
