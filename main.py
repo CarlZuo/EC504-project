@@ -58,7 +58,15 @@ def save_file():
     output = text1.get('1.0', tk.END)
     if file_path is not None:
         with open(file=file_path, mode='w+', encoding='utf-8') as file:
-            file.writelines(output)
+
+            file.writelines(str(len(twi)))
+            file.writelines("\n")
+            for line in twi:
+                outline = str(len(line))
+                for word in line:
+                    outline = outline + " " + word
+                file.writelines(outline)
+                file.writelines("\n")
 
         text1.delete('1.0', tk.END)
         dialog.Dialog(None, {'title': 'File Modified', 'text': 'Store Complete!', 'bitmap': 'warning', 'default': 0,

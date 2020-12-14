@@ -42,8 +42,6 @@ int main(int argc, char *argv[]){
 
 	
 
-	cout<< data["sentence"][0]<<endl;
-	cout<< data["sentence"][1];
 
 
 	return 0;
@@ -52,6 +50,7 @@ int main(int argc, char *argv[]){
 
 
 int getTwee(){
+	
 	data.clear();
 	ifstream infile;
 	infile.open("twi.txt");
@@ -59,11 +58,14 @@ int getTwee(){
 		cout << "Error opening twitter file " <<endl;
 		return -1;
 	} 
-
+	
 	string temp;
 	infile >> twNum;
 	string raw[twNum];
+	cout << twNum<<endl;
+	cout<<"start creating inverted index dataset"<<endl;
 	for(int i = 0; i < twNum; i++){
+
 		infile >> wdNum;
 		raw[i] = "";
 		for(int j = 0; j < wdNum; j++){
@@ -84,13 +86,14 @@ int getTwee(){
 
 		}
 	}
+	cout<<"finish creating inverted index dataset"<<endl;
 	return 0;
 
 }
 
 int findKey(int* rtn){
 	map <int,int> count;
-	
+	cout<<"start searching"<<endl;	
 	ifstream infile;
 	infile.open("key.txt");
 	if(!infile){
@@ -137,5 +140,6 @@ int findKey(int* rtn){
 	for(int i = 0; i < 10; i++){
 		rtn[i] = sorted[i].first;
 	}
+		cout<<"finish searching"<<endl;	
 	return 0;
 }
