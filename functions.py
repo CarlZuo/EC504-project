@@ -12,7 +12,7 @@ def load_csv(path,file_name):
 
 
 def findKeynorm(twis,keys):
-    time_start = time.time_ns()
+    time_start = time.process_time()
 
     count = list()
     for i in range(0,len(twis)):
@@ -39,14 +39,14 @@ def findKeynorm(twis,keys):
     for i in range(0,10):
         rtn.append(sort[i][0])
 
-    time_end = time.time_ns()
+    time_end = time.process_time()
     time_tot = time_end-time_start
     print("it takes "+ str(time_tot) + " nano second to finsh search")
     return rtn
 
 
 def loadTwee(twis):
-    time_start = time.time_ns()
+    time_start = time.process_time()
     data = dict()
     for i in range(0,len(twis)):
         for word in twis[i]:
@@ -58,13 +58,13 @@ def loadTwee(twis):
             else:
                 data[word] = [[i,1]]
 
-    time_end = time.time_ns()
+    time_end = time.process_time()
     time_tot = time_end-time_start
     print("it takes "+ str(time_tot) + " nano second to load inverted index dataset")
     return data
 
 def findKey(data,keys):
-    time_start = time.time_ns()
+    time_start = time.process_time()
     count = dict()
     for key in keys:
         if key in data:
@@ -89,7 +89,7 @@ def findKey(data,keys):
     for i in range(0,10):
         rtn.append(sort[i][0])
 
-    time_end = time.time_ns()
+    time_end = time.process_time()
     time_tot = time_end-time_start
     print("it takes "+ str(time_tot) + " nano second to finsh search in inverted index")
     return rtn
